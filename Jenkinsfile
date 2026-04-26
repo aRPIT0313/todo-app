@@ -24,6 +24,7 @@ pipeline {
         }
         stage('Deploy to Kubernetes') {
             steps {
+                bat 'kubectl config use-context minikube'
                 bat 'kubectl apply -f k8s-deployment.yaml --validate=false'
                 bat 'kubectl rollout status deployment/todo-app'
             }
