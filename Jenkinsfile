@@ -14,7 +14,7 @@ pipeline {
         stage('Stop Old Container') {
             steps {
                 bat 'docker stop todo-container || exit 0'
-                bat 'docker rm todo-container || exit 0'
+                bat 'docker rm -f todo-container || exit 0'
             }
         }
         stage('Run Docker Container') {
