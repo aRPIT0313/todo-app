@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/todo-app.git'
+                git branch: 'main', url: 'https://github.com/aRPIT0313/todo-app.git'
             }
         }
         stage('Build Docker Image') {
