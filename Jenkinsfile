@@ -29,6 +29,12 @@ pipeline {
                 bat 'kubectl rollout status deployment/todo-app'
             }
         }
+        stage('Run Tests') {
+            steps {
+                bat 'pip install pytest pytest-flask'
+                bat 'pytest tests/test_unit.py -v --junitxml=results/unit.xml'
+            }
+        }
     }
     post {
         success { echo 'Deployed Successfully!' }
